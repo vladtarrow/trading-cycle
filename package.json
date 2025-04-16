@@ -1,6 +1,7 @@
 {
   "name": "analyser",
   "version": "1.0.0",
+  "author": "Vladyslav Tarasenko",
   "type": "module",
   "scripts": {
     "build": "webpack --config webpack.config.js"
