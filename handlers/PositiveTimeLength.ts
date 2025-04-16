@@ -1,4 +1,4 @@
-import Base from './Base.js';
+import Base from './Base';
 
 export default class PositiveTimeLength extends Base {
     constructor() {

@@ -1,4 +1,4 @@
-import handlers from "./handlers/index.js";
+import handlers from "./handlers/index";
 
 export default class Analyser {
     constructor(preset) {

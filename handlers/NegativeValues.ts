@@ -1,6 +1,6 @@
-import Base from './Base.js';
+import Base from './Base';
 
-export default class PositiveValues extends Base {
+export default class NegativeValues extends Base {
     constructor() {
         super(...arguments);
         this.prev = undefined;
@@ -10,9 +10,9 @@ export default class PositiveValues extends Base {
         if (!this.v.input) {
             return;
         }
-        const positive = !!(this.prev && this.v.input.c > this.prev.c);
+        const negative = !!(this.prev && this.v.input.c < this.prev.c);
         this.prev = this.v.input;
-        if (positive) {
+        if (negative) {
             return this.v.input;
         }
     }

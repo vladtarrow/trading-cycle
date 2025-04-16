@@ -1,4 +1,4 @@
-import Analyser from './Analyser.js';
+import Analyser from './Analyser';
 import config from './presets/index';
 
 export default {
