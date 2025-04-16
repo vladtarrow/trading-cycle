@@ -1,4 +1,7 @@
-module.exports = {
-   Analyser: require('./Analyser'),
-   config: require('../analyser/presets/index')
+import Analyser from './Analyser.js';
+import config from './presets/index';
+
+export default {
+   Analyser,
+   config
 };

@@ -1,4 +1,5 @@
-const defaultAnalyser = require('./default-analyser');
-module.exports = {
+import defaultAnalyser from './default-analyser.js';
+
+export default {
     defaultAnalyser
 };
