@@ -5,9 +5,9 @@ const isProduction = process.env.NODE_ENV === 'production';
 module.exports = {
     entry: './index.ts',
     output: {
-        filename: '[name].analyser.bundle.js',
+        filename: '[name].trading-cycle.bundle.js',
         path: path.resolve(__dirname, 'dist'),
-        library: 'Analyser',
+        library: 'TradingCycle',
         libraryTarget: 'umd',
         umdNamedDefine: true,
     },

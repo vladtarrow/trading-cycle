@@ -1,6 +1,6 @@
 import handlers from "./handlers/index";
 
-export default class Analyser {
+export default class TradingCycle {
     constructor(preset) {
         this.handlers = {};
         this.state = {};

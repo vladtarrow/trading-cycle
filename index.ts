@@ -1,7 +1,7 @@
-import Analyser from './Analyser';
+import TradingCycle from './TradingCycle';
 import config from './presets/index';
 
 export default {
-   Analyser,
+   TradingCycle,
    config
 };

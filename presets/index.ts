@@ -1,5 +1,5 @@
-import defaultAnalyser from './default-analyser';
+import defaultTradingCycle from './default-trading-cycle';
 
 export default {
-    defaultAnalyser
+    defaultTradingCycle
 };
