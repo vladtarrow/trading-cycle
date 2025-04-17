@@ -1,6 +1,6 @@
-import Base from './Base';
+import AbstractHandler from './AbstractHandler';
 
-export default class FakeTrader extends Base {
+export default class FakeTrader extends AbstractHandler {
   constructor() {
     super(...arguments);
     this.price = null;

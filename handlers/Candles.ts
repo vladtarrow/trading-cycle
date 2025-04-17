@@ -1,6 +1,6 @@
-import Base from './Base';
+import AbstractHandler from './AbstractHandler';
 
-export default class Candles extends Base {
+export default class Candles extends AbstractHandler {
   constructor() {
     super(...arguments);
   }

@@ -1,6 +1,6 @@
-import Base from './Base';
+import AbstractHandler from './AbstractHandler';
 
-export default class NegativeValues extends Base {
+export default class NegativeValues extends AbstractHandler {
   constructor() {
     super(...arguments);
     this.prev = undefined;

@@ -1,6 +1,6 @@
-import Base from './Base';
+import AbstractHandler from './AbstractHandler';
 
-export default class RenkoReverse extends Base {
+export default class RenkoReverse extends AbstractHandler {
   constructor() {
     super(...arguments);
     this.brickSizeLong = this.defaults.sizeLong || this.defaults.size;

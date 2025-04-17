@@ -1,6 +1,6 @@
-import Base from './Base';
+import AbstractHandler from './AbstractHandler';
 
-export default class LogCandle extends Base {
+export default class LogCandle extends AbstractHandler {
   constructor() {
     super(...arguments);
   }

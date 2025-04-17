@@ -1,6 +1,6 @@
-import Base from './Base';
+import AbstractHandler from './AbstractHandler';
 
-export default class TestLogic2 extends Base {
+export default class TestLogic2 extends AbstractHandler {
   constructor() {
     super(...arguments);
   }

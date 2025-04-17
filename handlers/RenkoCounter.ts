@@ -1,6 +1,6 @@
-import Base from './Base';
+import AbstractHandler from './AbstractHandler';
 
-export default class RenkoCounter extends Base {
+export default class RenkoCounter extends AbstractHandler {
   constructor() {
     super(...arguments);
     this.val = 0;

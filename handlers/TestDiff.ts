@@ -1,6 +1,6 @@
-import Base from './Base';
+import AbstractHandler from './AbstractHandler';
 
-export default class TestDiff extends Base {
+export default class TestDiff extends AbstractHandler {
   constructor() {
     super(...arguments);
     this.val = 0;

@@ -1,6 +1,6 @@
-import Base from './Base';
+import AbstractHandler from './AbstractHandler';
 
-export default class TimeRenko extends Base {
+export default class TimeRenko extends AbstractHandler {
   constructor() {
     super(...arguments);
     this.prev = {

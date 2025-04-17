@@ -1,9 +1,9 @@
-import handlers from './handlers/index';
-
 export default class TradingCycle {
-  constructor(preset) {
+  constructor(handlerClasses, preset) {
     this.handlers = {};
     this.state = {};
+    this.handlerClasses = handlerClasses;
+
     preset.forEach((handler) => {
       this.#register(handler);
     });
@@ -12,19 +12,16 @@ export default class TradingCycle {
   #register(handler) {
     this.#checkRegistration(handler);
     this.#checkRequiredHandlers(handler);
-    this.handlers[handler.name] = new handlers[handler.handler](this.state, handler);
+    this.handlers[handler.name] = new this.handlerClasses[handler.handler](this.state, handler);
     this.state[handler.name] = [];
-    // console.log(`${handler.name} has been registered.`);
   }
 
   execute(tick) {
-    const values = {
-      tick,
-    };
+    const values = { tick };
     Object.keys(this.handlers).forEach((name) => {
       const Handler = this.handlers[name];
       values[name] = Handler.execute(values);
-      if (!!values[name]) {
+      if (values[name]) {
         this.state[name].push(values[name]);
       }
     });
@@ -44,7 +41,7 @@ export default class TradingCycle {
 
   #checkRequiredHandlers(handler) {
     const registeredHandlers = Object.keys(this.handlers);
-    const requiredHandlers = Object.values(handler.inputs);
+    const requiredHandlers = Object.values(handler.inputs || {});
     requiredHandlers.forEach((handlerName) => {
       if (!registeredHandlers.includes(handlerName) && handlerName !== 'tick') {
         // throw new Error(`${handlerName} has not registered for ${handler.name}`);

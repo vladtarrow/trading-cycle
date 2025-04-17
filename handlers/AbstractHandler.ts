@@ -1,6 +1,6 @@
 import type { HandlerConfig, State, Values } from '../types/types';
 
-export default abstract class Base {
+export default abstract class AbstractHandler {
   protected defaults?: Record<string, unknown>;
   protected name: string;
   protected _inputs: Record<string, string>;

@@ -1,6 +1,6 @@
-import Base from './Base';
+import AbstractHandler from './AbstractHandler';
 
-export default class NegativeTimeLength extends Base {
+export default class NegativeTimeLength extends AbstractHandler {
   constructor() {
     super(...arguments);
     this.prev = undefined;
