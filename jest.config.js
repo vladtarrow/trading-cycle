@@ -3,7 +3,7 @@ module.exports = {
   testEnvironment: 'node',
   collectCoverage: true,
   coverageDirectory: 'coverage',
-  collectCoverageFrom: ['handlers/**/*.ts', '!**/node_modules/**', '!**/dist/**'],
+  collectCoverageFrom: ['tests/**/*.ts', '!**/node_modules/**', '!**/dist/**'],
   coverageThreshold: {
     global: {
       branches: 100,
@@ -12,4 +12,8 @@ module.exports = {
       statements: 100,
     },
   },
+  // Настроим Jest искать только в папке tests
+  roots: ['<rootDir>/tests'],
+  // Включаем только файлы с расширением .ts и только из папки tests
+  testMatch: ['**/tests/**/*.ts'],
 };
