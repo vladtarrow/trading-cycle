@@ -1,7 +1,7 @@
 import TradingCycle from './TradingCycle';
-import config from './presets/index';
+import AbstractHandler from './handlers/AbstractHandler';
 
 export default {
   TradingCycle,
-  config,
+  AbstractHandler,
 };

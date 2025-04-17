@@ -1,16 +1,6 @@
 const path = require('path');
 
-const isProduction = process.env.NODE_ENV === 'production';
-
-module.exports = {
-  entry: './index.ts',
-  output: {
-    filename: '[name].trading-cycle.bundle.js',
-    path: path.resolve(__dirname, 'dist'),
-    library: 'TradingCycle',
-    libraryTarget: 'umd',
-    umdNamedDefine: true,
-  },
+const commonConfig = {
   resolve: {
     extensions: ['.ts', '.js'],
   },
@@ -21,16 +11,50 @@ module.exports = {
         use: {
           loader: 'ts-loader',
           options: {
-            transpileOnly: true, // todo remove
+            transpileOnly: true, // todo удалить
           },
         },
         exclude: /node_modules/,
       },
     ],
   },
-  mode: isProduction ? 'production' : 'development',
-  devtool: isProduction ? 'source-map' : 'inline-source-map',
-  optimization: {
-    minimize: isProduction,
-  },
 };
+
+const createConfig = ({ entry, filename, library, name }, mode) => ({
+  name,
+  ...commonConfig,
+  entry,
+  output: {
+    filename,
+    path: path.resolve(__dirname, 'dist'),
+    library,
+    libraryTarget: 'umd',
+    umdNamedDefine: true,
+  },
+  mode,
+  devtool: mode === 'production' ? 'source-map' : 'inline-source-map',
+  optimization: {
+    minimize: mode === 'production',
+  },
+});
+
+module.exports = (env, argv) => [
+  createConfig(
+    {
+      name: 'light',
+      entry: './index-light.ts',
+      filename: 'trading-cycle-light.bundle.js',
+      library: 'TradingCycleLight',
+    },
+    argv.mode
+  ),
+  createConfig(
+    {
+      name: 'full',
+      entry: './index-full.ts',
+      filename: 'trading-cycle-full.bundle.js',
+      library: 'TradingCycleFull',
+    },
+    argv.mode
+  ),
+];

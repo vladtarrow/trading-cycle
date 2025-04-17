@@ -7,8 +7,10 @@
   },
   "engine-strict": false,
   "scripts": {
-    "build:dev": "webpack --mode development --config webpack.config.js",
-    "build:prod": "webpack --mode production --config webpack.config.js",
+    "build:dev:light": "webpack --mode development --config webpack.config.js --config-name light",
+    "build:dev:full": "webpack --mode development --config webpack.config.js --config-name full",
+    "build:prod:light": "webpack --mode production --config webpack.config.js --config-name light",
+    "build:prod:full": "webpack --mode production --config webpack.config.js --config-name full",
     "test": "jest --coverage",
     "test:watch": "jest --watch",
     "lint": "eslint . --ext .ts,.js",
