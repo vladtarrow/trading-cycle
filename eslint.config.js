@@ -6,6 +6,7 @@ const tsParser = require('@typescript-eslint/parser');
 module.exports = [
   {
     files: ['**/*.ts', '**/*.js'],
+    ignores: ['dist/**', 'coverage/**', 'node_modules/**'],
     languageOptions: {
       parser: tsParser,
       parserOptions: {
@@ -26,14 +27,12 @@ module.exports = [
       'prettier/prettier': 'error',
       'no-console': 'warn',
       'no-debugger': 'warn',
-      'import/prefer-default-export': 'off',
-      'import/no-extraneous-dependencies': 'off',
+      '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
     },
     settings: {},
     linterOptions: {
       reportUnusedDisableDirectives: true,
     },
   },
-  // Apply prettier config
   eslintConfigPrettier,
 ];

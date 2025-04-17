@@ -14,7 +14,7 @@ export default class TradingCycle {
     this.#checkRequiredHandlers(handler);
     this.handlers[handler.name] = new handlers[handler.handler](this.state, handler);
     this.state[handler.name] = [];
-    console.log(`${handler.name} has been registered.`);
+    // console.log(`${handler.name} has been registered.`);
   }
 
   execute(tick) {
