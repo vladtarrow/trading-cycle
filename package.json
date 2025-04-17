@@ -2,6 +2,10 @@
   "name": "trading-cycle",
   "version": "1.0.0",
   "author": "Vladyslav Tarasenko",
+  "engines": {
+    "node": "18.18.0"
+  },
+  "engine-strict": false,
   "scripts": {
     "build:dev": "webpack --mode development --config webpack.config.js",
     "build:prod": "webpack --mode production --config webpack.config.js",
