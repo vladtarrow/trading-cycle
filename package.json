@@ -26,7 +26,7 @@
     "investment"
   ],
   "private": false,
-  "license": " MIT",
+  "license": "MIT",
   "engines": {
     "node": "18.18.0"
   },
