@@ -2,10 +2,36 @@
   "name": "trading-cycle",
   "version": "1.0.0",
   "author": "Vladyslav Tarasenko",
+  "description": "A lightweight, modular library for backtesting trading strategies",
+  "keywords": [
+    "backtesting",
+    "trading",
+    "finance",
+    "typescript",
+    "modular",
+    "lightweight",
+    "strategies",
+    "quantitative",
+    "algorithmic",
+    "financial",
+    "portfolio",
+    "market",
+    "data-analysis",
+    "trading-system",
+    "quant",
+    "trading-strategy",
+    "backtest",
+    "algo-trading",
+    "quant-finance",
+    "investment"
+  ],
+  "private": false,
+  "license": " MIT",
   "engines": {
     "node": "18.18.0"
   },
   "engine-strict": false,
+  "sideEffects": false,
   "scripts": {
     "build:dev:light": "webpack --mode development --config webpack.config.js --config-name light",
     "build:dev:full": "webpack --mode development --config webpack.config.js --config-name full",
@@ -41,5 +67,13 @@
     "*.{js,ts}": [
       "eslint --fix"
     ]
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vladtarrow/trading-cycle.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vladtarrow/trading-cycle/issues"
+  },
+  "homepage": "https://github.com/vladtarrow/trading-cycle#readme"
 }
