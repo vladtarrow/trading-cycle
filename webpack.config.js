@@ -42,7 +42,7 @@ module.exports = (env, argv) => [
   createConfig(
     {
       name: 'light',
-      entry: './index-light.ts',
+      entry: './src/index-light.ts',
       filename: 'trading-cycle-light.bundle.js',
       library: 'TradingCycleLight',
     },
@@ -51,7 +51,7 @@ module.exports = (env, argv) => [
   createConfig(
     {
       name: 'full',
-      entry: './index-full.ts',
+      entry: './src/index-full.ts',
       filename: 'trading-cycle-full.bundle.js',
       library: 'TradingCycleFull',
     },

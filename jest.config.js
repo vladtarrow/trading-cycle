@@ -13,7 +13,7 @@ module.exports = {
     },
   },
   // Настроим Jest искать только в папке tests
-  roots: ['<rootDir>/tests'],
+  roots: ['<rootDir>/src/tests'],
   // Включаем только файлы с расширением .ts и только из папки tests
   testMatch: ['**/tests/**/*.ts'],
 };
