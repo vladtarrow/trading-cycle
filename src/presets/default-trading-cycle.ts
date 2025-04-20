@@ -85,12 +85,4 @@ export default [
       input: 'test-logic',
     },
   },
-  {
-    name: 'test-logic-2',
-    handler: 'TestLogic2',
-    inputs: {
-      candle: 'renko-0.05',
-      signal: 'test-logic',
-    },
-  },
 ];

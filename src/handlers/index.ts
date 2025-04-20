@@ -5,7 +5,6 @@ import Renko from './Renko';
 import RenkoReverse from './RenkoReverse';
 import TimeRenko from './TimeRenko';
 import TestLogic from './TestLogic';
-import TestLogic2 from './TestLogic2';
 import PositiveTimeLength from './PositiveTimeLength';
 import NegativeTimeLength from './NegativeTimeLength';
 import FakeTrader from './FakeTrader';
@@ -21,7 +20,6 @@ export default {
   RenkoReverse,
   TimeRenko,
   TestLogic,
-  TestLogic2,
   PositiveTimeLength,
   NegativeTimeLength,
   FakeTrader,
