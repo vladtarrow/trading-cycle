@@ -11,7 +11,6 @@ export default class TradingCycle {
 
   #register(handler) {
     this.#checkRegistration(handler);
-    this.#checkRequiredHandlers(handler);
     this.handlers[handler.name] = new this.handlerClasses[handler.handler](this.state, handler);
     this.state[handler.name] = [];
   }
@@ -37,15 +36,5 @@ export default class TradingCycle {
     if (this.handlers[handler.name]) {
       throw new Error(`${handler.name} already exists`);
     }
-  }
-
-  #checkRequiredHandlers(handler) {
-    const registeredHandlers = Object.keys(this.handlers);
-    const requiredHandlers = Object.values(handler.inputs || {});
-    requiredHandlers.forEach((handlerName) => {
-      if (!registeredHandlers.includes(handlerName) && handlerName !== 'tick') {
-        // throw new Error(`${handlerName} has not registered for ${handler.name}`);
-      }
-    });
   }
 }
