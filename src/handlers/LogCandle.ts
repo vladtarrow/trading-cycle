@@ -1,10 +1,6 @@
 import AbstractHandler from './AbstractHandler';
 
 export default class LogCandle extends AbstractHandler {
-  constructor() {
-    super(...arguments);
-  }
-
   doExecute() {
     if (!this.v.candle) {
       return;

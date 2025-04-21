@@ -1,8 +1,10 @@
 import AbstractHandler from './AbstractHandler';
+import { HandlerConfig, State } from '../types/types';
 
 export default class PositiveValues extends AbstractHandler {
-  constructor() {
-    super(...arguments);
+  private prev: undefined;
+  constructor(state: State, config: HandlerConfig) {
+    super(state, config);
     this.prev = undefined;
   }
 

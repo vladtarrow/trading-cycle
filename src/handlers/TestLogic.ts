@@ -1,10 +1,6 @@
 import AbstractHandler from './AbstractHandler';
 
 export default class TestLogic extends AbstractHandler {
-  constructor() {
-    super(...arguments);
-  }
-
   doExecute() {
     const renko = this.s.candle;
     if (renko && renko.length < 10) {

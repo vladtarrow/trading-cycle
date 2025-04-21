@@ -10,9 +10,6 @@ const commonConfig = {
         test: /\.ts$/,
         use: {
           loader: 'ts-loader',
-          options: {
-            transpileOnly: true, // todo удалить
-          },
         },
         exclude: /node_modules/,
       },

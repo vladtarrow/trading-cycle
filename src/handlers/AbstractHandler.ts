@@ -1,6 +1,6 @@
-import type { HandlerConfig, State, Values } from '../types/types';
+import type { HandlerConfig, HandlerInterface, State, Values } from '../types/types';
 
-export default abstract class AbstractHandler {
+export default abstract class AbstractHandler implements HandlerInterface {
   protected defaults?: Record<string, unknown>;
   protected name: string;
   protected _inputs: Record<string, string>;
