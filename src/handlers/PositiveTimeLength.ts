@@ -1,8 +1,12 @@
 import AbstractHandler from './AbstractHandler';
+import { HandlerConfig, State, Values } from "../types/types";
 
 export default class PositiveTimeLength extends AbstractHandler {
-  constructor() {
-    super(...arguments);
+  private prev: Values | undefined;
+  private val: number;
+
+  constructor(state: State, config: HandlerConfig) {
+    super(state, config);
     this.prev = undefined;
     this.val = 0;
   }

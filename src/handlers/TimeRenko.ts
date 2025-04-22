@@ -1,8 +1,11 @@
 import AbstractHandler from './AbstractHandler';
+import { HandlerConfig, State } from "../types/types";
 
 export default class TimeRenko extends AbstractHandler {
-  constructor() {
-    super(...arguments);
+  private prev: { o: number; c: number; h: number; l: number; t: number };
+
+  constructor(state: State, config: HandlerConfig) {
+    super(state, config);
     this.prev = {
       o: 0,
       c: 0,
@@ -16,11 +19,13 @@ export default class TimeRenko extends AbstractHandler {
     if (!this.v.input) {
       return;
     }
+
     const o = this.prev.c;
     const c =
-      this.prev.c + (this.v.input.c > this.v.input.o ? this.v.input.len : -this.v.input.len);
+        this.prev.c + (this.v.input.c > this.v.input.o ? this.v.input.len : -this.v.input.len);
     const h = Math.max(o, c);
     const l = Math.min(o, c);
+
     this.prev = {
       o: o,
       c: c,
@@ -28,6 +33,7 @@ export default class TimeRenko extends AbstractHandler {
       l: l,
       t: this.v.input.t,
     };
+
     return this.prev;
   }
 }

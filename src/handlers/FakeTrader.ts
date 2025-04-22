@@ -1,8 +1,13 @@
 import AbstractHandler from './AbstractHandler';
+import { HandlerConfig, State } from "../types/types";
 
 export default class FakeTrader extends AbstractHandler {
-  constructor() {
-    super(...arguments);
+  private price: number | null;
+  private cum: number;
+  private cnt: number;
+
+  constructor(state: State, config: HandlerConfig) {
+    super(state, config);
     this.price = null;
     this.cum = 0;
     this.cnt = 0;
@@ -12,11 +17,12 @@ export default class FakeTrader extends AbstractHandler {
     if (this.v.input && this.v.input.signal && typeof this.price !== 'number') {
       this.price = this.v.tick.c;
     }
+
     if ((!this.v.input || !this.v.input.signal) && typeof this.price === 'number') {
       const delta = this.v.tick.c - this.price;
       const cum = this.cum;
       this.cum += delta;
-      this.cnt++; // = delta > 0 ? this.cnt+1:this.cnt-1;
+      this.cnt++;
       this.price = null;
       return {
         cnt: this.cnt,

@@ -1,8 +1,10 @@
 import AbstractHandler from './AbstractHandler';
+import {HandlerConfig, State} from "../types/types";
 
 export default class RenkoCounter extends AbstractHandler {
-  constructor() {
-    super(...arguments);
+  private val: number;
+  constructor(state: State, config: HandlerConfig) {
+    super(state, config);
     this.val = 0;
   }
 

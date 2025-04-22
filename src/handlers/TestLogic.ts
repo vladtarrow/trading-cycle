@@ -1,6 +1,8 @@
 import AbstractHandler from './AbstractHandler';
 
 export default class TestLogic extends AbstractHandler {
+  private started = false;
+
   doExecute() {
     const renko = this.s.candle;
     if (renko && renko.length < 10) {
@@ -14,12 +16,8 @@ export default class TestLogic extends AbstractHandler {
     }
 
     if (
-      renko[renko.length - 1].c > renko[renko.length - 1].o &&
-      Math.abs(renko[renko.length - 1].c - renko[renko.length - 1].o) < 2 // &&
-      // renko[renko.length - 2].c < renko[renko.length - 2].o &&
-      // Math.abs(renko[renko.length - 2].c - renko[renko.length - 2].o) < 10
-      // ((renko[renko.length - 1].h- renko[renko.length - 1].o)  / (renko[renko.length - 1].c- renko[renko.length - 1].l)) < 2
-      //  ((renko[renko.length - 1].o- renko[renko.length - 1].c)  >  (renko[renko.length - 1].c- renko[renko.length - 1].l))
+        renko[renko.length - 1].c > renko[renko.length - 1].o &&
+        Math.abs(renko[renko.length - 1].c - renko[renko.length - 1].o) < 2
     ) {
       this.started = true;
       return {

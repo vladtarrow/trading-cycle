@@ -18,3 +18,15 @@ export interface HandlerInterface {
 export type HandlerConstructor = new (state: State, config: HandlerConfig) => HandlerInterface;
 
 export type HandlerClassMap = Record<string, HandlerConstructor>;
+
+export type RenkoBar = {
+  o: number;
+  c: number;
+  h: number;
+  l: number;
+  up: number;
+  down: number;
+  len: number;
+  t?: number;
+  val?: number;
+};

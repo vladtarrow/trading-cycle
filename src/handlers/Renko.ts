@@ -1,19 +1,31 @@
 import AbstractHandler from './AbstractHandler';
+import {HandlerConfig, RenkoBar, State} from '../types/types';
 
 export default class Renko extends AbstractHandler {
-  constructor() {
-    super(...arguments);
-    this.brickSizeLong = this.defaults.sizeLong || this.defaults.size;
-    this.brickSizeShort = this.defaults.sizeShort || this.defaults.size;
+  private brickSizeLong: number;
+  private brickSizeShort: number;
+  private renko: RenkoBar | null;
+  private val: number;
+
+  constructor(state: State, config: HandlerConfig) {
+    super(state, config);
+
+    const defaults = this.defaults ?? {};
+    const baseSize = defaults.size ?? 1;
+
+    this.brickSizeLong = (defaults.sizeLong ?? baseSize) as number;
+    this.brickSizeShort = (defaults.sizeShort ?? baseSize) as number;
+
     this.renko = null;
     this.val = 0;
-    this.extraChangeVal = 0;
   }
 
-  doExecute() {
+
+  doExecute(): RenkoBar | void {
     if (!this.v.candle) {
       return;
     }
+
     if (this.renko) {
       this.renko.len++;
       this.renko.c = this.v.candle.c;
@@ -39,29 +51,17 @@ export default class Renko extends AbstractHandler {
 
     const max = Math.max(this.renko.c, this.renko.o);
     const min = Math.min(this.renko.c, this.renko.o);
-
     const percentChange = Math.abs(max - min) / min;
 
     const isLong = this.renko.c > this.renko.o && percentChange >= this.brickSizeLong;
     const isShort = this.renko.c < this.renko.o && percentChange >= this.brickSizeShort;
 
-    const extraChange = isLong
-      ? percentChange - this.brickSizeLong
-      : percentChange - this.brickSizeShort;
-
     if (isLong || isShort) {
       const renko = this.renko;
       renko.t = this.v.tick.t;
       this.val = this.val + (renko.c > renko.o ? 1 : -1);
-      // this.val = 1/renko.len
-      // renko.len = 1/renko.len
       renko.val = this.val;
-      renko.extraChange = extraChange;
-      // if(isLong) {
-      this.extraChangeVal =
-        extraChange >= 0.04 / 100 ? this.extraChangeVal + 1 : this.extraChangeVal - 1;
-      // }
-      renko.extraChangeVal = this.extraChangeVal;
+
       this.renko = {
         o: renko.c,
         c: renko.c,
@@ -73,6 +73,7 @@ export default class Renko extends AbstractHandler {
         t: this.v.tick.t,
         val: this.val,
       };
+
       return renko;
     }
   }
