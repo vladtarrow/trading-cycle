@@ -1,5 +1,5 @@
 import AbstractHandler from './AbstractHandler';
-import {HandlerConfig, RenkoBar, State} from '../types/types';
+import { HandlerConfig, RenkoBar, State } from '../types/types';
 
 export default class Renko extends AbstractHandler {
   private brickSizeLong: number;
@@ -19,7 +19,6 @@ export default class Renko extends AbstractHandler {
     this.renko = null;
     this.val = 0;
   }
-
 
   doExecute(): RenkoBar | void {
     if (!this.v.candle) {

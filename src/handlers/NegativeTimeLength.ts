@@ -1,5 +1,5 @@
 import AbstractHandler from './AbstractHandler';
-import {HandlerConfig, State, Values} from "../types/types";
+import { HandlerConfig, State, Values } from '../types/types';
 
 export default class NegativeTimeLength extends AbstractHandler {
   private prev: Values | undefined;

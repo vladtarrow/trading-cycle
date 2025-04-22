@@ -16,8 +16,8 @@ export default class TestLogic extends AbstractHandler {
     }
 
     if (
-        renko[renko.length - 1].c > renko[renko.length - 1].o &&
-        Math.abs(renko[renko.length - 1].c - renko[renko.length - 1].o) < 2
+      renko[renko.length - 1].c > renko[renko.length - 1].o &&
+      Math.abs(renko[renko.length - 1].c - renko[renko.length - 1].o) < 2
     ) {
       this.started = true;
       return {
