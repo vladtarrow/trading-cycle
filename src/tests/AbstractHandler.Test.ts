@@ -39,10 +39,8 @@ describe('AbstractHandler', () => {
     const values: Values = { tick: { t: 123, c: 10 } };
     const result = handler.execute(values);
 
-    // Ожидаем, что tickTime будет числом, а не объектом
     expect(result).toEqual({ result: 'done', tickTime: 123 });
 
-    // Проверяем, что данные внутри v и s обновились корректно
     expect(handler.v).toEqual({ tick: { t: 123, c: 10 }, tickTime: { t: 123, c: 10 } });
     expect(handler.s).toEqual({ tickTime: { t: 123, c: 10 } });
   });
@@ -56,5 +54,11 @@ describe('AbstractHandler', () => {
     expect(result).toEqual({ result: 'done', tickTime: 100 });
     expect(handler.v).toEqual({ tick: { t: 100, c: 20 }, tickTime: { t: 100, c: 20 } });
     expect(handler.s).toEqual({ tickTime: { t: 123, c: 10 } });
+  });
+
+  it('should return calculated values from state', () => {
+    const handler = new TestHandler(state, handlerConfig);
+
+    expect(handler.calculated).toEqual(state[handlerConfig.name]);
   });
 });
