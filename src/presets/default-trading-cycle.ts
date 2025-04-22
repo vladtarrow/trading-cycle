@@ -19,7 +19,7 @@ const handlers: HandlerConfig[] = [
     name: 'renko-0.05',
     handler: 'Renko',
     defaults: {
-      size: 0.00003,
+      size: 0.05,
     },
     inputs: {
       candle: 'candles',
@@ -34,24 +34,6 @@ const handlers: HandlerConfig[] = [
     },
   },
   {
-    name: 'renko-0.05-2',
-    handler: 'Renko',
-    defaults: {
-      size: 0.02,
-    },
-    inputs: {
-      candle: 'time-renko',
-    },
-  },
-  {
-    name: 'renko-0.05-p',
-    handler: 'PositiveValues',
-    defaults: {},
-    inputs: {
-      candle: 'renko-0.05',
-    },
-  },
-  {
     name: 'renko-counter',
     handler: 'RenkoCounter',
     defaults: {},
@@ -63,11 +45,11 @@ const handlers: HandlerConfig[] = [
     name: 'test-logic',
     handler: 'TestLogic',
     inputs: {
-      candle: 'renko-0.05-2',
+      candle: 'renko-0.05',
     },
   },
   {
-    name: 'fake-trader-1',
+    name: 'fake-trader',
     handler: 'FakeTrader',
     inputs: {
       input: 'test-logic',

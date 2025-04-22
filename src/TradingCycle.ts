@@ -2,9 +2,9 @@ import { HandlerClassMap, HandlerConfig, State, Values } from './types/types';
 import AbstractHandler from './handlers/AbstractHandler';
 
 export default class TradingCycle {
-  private handlers: Record<string, AbstractHandler>;
-  private state: State;
-  private handlerClasses: HandlerClassMap;
+  private readonly handlers: Record<string, AbstractHandler>;
+  private readonly handlerClasses: HandlerClassMap;
+  public state: State;
 
   constructor(handlerClasses: HandlerClassMap, preset: HandlerConfig[]) {
     this.handlers = {};

@@ -34,5 +34,12 @@ records.forEach((record: TickData) => {
   tradingCycle.execute(tick);
 });
 
+const allHandlerConfigs = Object.keys(tradingCycle.state);
+
 // eslint-disable-next-line no-console
-console.log(tradingCycle);
+console.log(allHandlerConfigs);
+
+allHandlerConfigs.forEach((handlerConfig) => {
+  // eslint-disable-next-line no-console
+  console.log(handlerConfig, tradingCycle.state[handlerConfig][0]);
+});
