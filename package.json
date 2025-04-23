@@ -78,5 +78,29 @@
   "bugs": {
     "url": "https://github.com/vladtarrow/trading-cycle/issues"
   },
-  "homepage": "https://github.com/vladtarrow/trading-cycle#readme"
+  "homepage": "https://github.com/vladtarrow/trading-cycle#readme",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "main": "./dist/trading-cycle-full.bundle.js",
+  "types": "./dist/index-full.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/trading-cycle-full.bundle.js",
+      "require": "./dist/trading-cycle-full.bundle.js",
+      "types": "./dist/index-full.d.ts"
+    },
+    "./light": {
+      "import": "./dist/trading-cycle-light.bundle.js",
+      "require": "./dist/trading-cycle-light.bundle.js",
+      "types": "./dist/index-light.d.ts"
+    },
+    "./full": {
+      "import": "./dist/trading-cycle-full.bundle.js",
+      "require": "./dist/trading-cycle-full.bundle.js",
+      "types": "./dist/index-full.d.ts"
+    }
+  }
 }

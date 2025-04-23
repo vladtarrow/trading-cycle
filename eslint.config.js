@@ -5,8 +5,10 @@ const tsParser = require('@typescript-eslint/parser');
 
 module.exports = [
   {
-    files: ['**/*.ts', '**/*.js'],
     ignores: ['dist/**', 'coverage/**', 'node_modules/**'],
+  },
+  {
+    files: ['**/*.ts', '**/*.js'],
     languageOptions: {
       parser: tsParser,
       parserOptions: {
@@ -34,5 +36,6 @@ module.exports = [
       reportUnusedDisableDirectives: true,
     },
   },
+
   eslintConfigPrettier,
 ];
