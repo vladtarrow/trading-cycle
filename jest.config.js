@@ -3,6 +3,7 @@ module.exports = {
   testEnvironment: 'node',
   collectCoverage: true,
   coverageDirectory: 'coverage',
+  coverageReporters: ['lcov', 'text'],
   collectCoverageFrom: ['src/**/*.{ts,tsx}', '!**/node_modules/**', '!**/dist/**'],
   coverageThreshold: {
     global: {

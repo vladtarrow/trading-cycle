@@ -1,6 +1,6 @@
 # Trading Cycle
 
-[![npm version](https://img.shields.io/npm/v/trading-cycle.svg)](https://www.npmjs.com/package/trading-cycle)  [![Build Status](https://github.com/vladtarrow/trading-cycle/actions/workflows/ci.yml/badge.svg)](https://github.com/vladtarrow/trading-cycle/actions)  [![Coverage Status](https://coveralls.io/repos/github/vladtarrow/trading-cycle/badge.svg?branch=main)](https://coveralls.io/github/vladtarrow/trading-cycle?branch=main)  [![code style: prettier](https://img.shields.io/badge/code%20style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
+[![npm version](https://img.shields.io/npm/v/trading-cycle.svg)](https://www.npmjs.com/package/trading-cycle)  [![Build Status](https://github.com/vladtarrow/trading-cycle/actions/workflows/ci.yml/badge.svg)](https://github.com/vladtarrow/trading-cycle/actions)  [![Codecov](https://img.shields.io/codecov/c/github/vladtarrow/trading-cycle.svg?branch=main)](https://codecov.io/gh/vladtarrow/trading-cycle)  [![code style: prettier](https://img.shields.io/badge/code%20style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 
 [![bundle size](https://badgen.net/bundlephobia/min/trading-cycle)](https://bundlephobia.com/package/trading-cycle)  [![bundle minzipped size](https://badgen.net/bundlephobia/minzip/trading-cycle)](https://bundlephobia.com/package/trading-cycle)  [![dependencies](https://badgen.net/bundlephobia/dependency-count/trading-cycle)](https://bundlephobia.com/package/trading-cycle)
 
@@ -23,7 +23,19 @@ npm install trading-cycle
 ### Full Version
 
 ```ts
-import { TradingCycle } from 'trading-cycle/full';
+import {
+  Candles,
+  PositiveValues,
+  NegativeValues,
+  Renko,
+  TimeRenko,
+  TestLogic,
+  PositiveTimeLength,
+  NegativeTimeLength,
+  FakeTrader,
+  LogCandle,
+  RenkoCounter
+} from 'trading-cycle/full';
 ```
 
 ### Light Version
@@ -126,6 +138,48 @@ console.log(cycle.state);
 - **Modularity**: Handlers are self-contained units; you can add, remove or customize them without affecting others.
 - **Flexibility**: Presets define the pipeline; you control data flow by composing inputs and defaults.
 - **Simplicity**: Core abstractions (`TradingCycle`, `AbstractHandler`) remain minimal and clear.
+
+## Continuous Integration
+
+This project uses GitHub Actions for CI and Codecov for coverage reporting.
+
+### Setup
+
+1. **Add Codecov action**: No extra npm packages needed, simply configure the workflow.
+2. **Create a secret**: Add `CODECOV_TOKEN` in your repository's *Settings > Secrets*.
+
+### Workflow (`.github/workflows/ci.yml`)
+
+```yaml
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Run tests
+        run: yarn test --coverage
+
+      - name: Upload to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+```
 
 ## License
 

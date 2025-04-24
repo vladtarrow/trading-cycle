@@ -38,5 +38,19 @@ jobs:
       - name: Run linter
         run: yarn lint
 
-      - name: Run tests
-        run: yarn test
+      - name: Run tests with coverage
+        run: yarn test --coverage
+
+      - name: Debug directory structure
+        run: find . -name lcov.info
+
+      - name: Debug coverage files
+        run: ls -la coverage/ || echo "Coverage directory not found"
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          fail_ci_if_error: true
+          files: ./coverage/lcov.info
+          verbose: true
