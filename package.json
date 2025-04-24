@@ -1,6 +1,6 @@
 {
   "name": "trading-cycle",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Vladyslav Tarasenko",
   "description": "A lightweight, modular core library designed for backtesting trading strategies in financial markets.",
   "keywords": [
