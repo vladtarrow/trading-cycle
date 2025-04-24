@@ -2,7 +2,7 @@
 
 [![npm version](https://img.shields.io/npm/v/trading-cycle.svg)](https://www.npmjs.com/package/trading-cycle)  [![Build Status](https://github.com/vladtarrow/trading-cycle/actions/workflows/ci.yml/badge.svg)](https://github.com/vladtarrow/trading-cycle/actions)  [![Coverage Status](https://coveralls.io/repos/github/vladtarrow/trading-cycle/badge.svg?branch=main)](https://coveralls.io/github/vladtarrow/trading-cycle?branch=main)  [![code style: prettier](https://img.shields.io/badge/code%20style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 
-[![bundle size](https://badgen.net/bundlephobia/min/trading-cycle)](https://bundlephobia.com/package/trading-cycle)  [![bundle minzipped size](https://badgen.net/bundlephobia/minzip/trading-cycle)](https://bundlephobia.com/package/trading-cycle)  [![dependencies](https://badgen.net/bundlephobia/dependency-count/trading-cycle)](https://bundlephobia.com/package/trading-cycle)  [![tree shaking supported](https://badgen.net/bundlephobia/tree-shaking/trading-cycle)](https://bundlephobia.com/package/trading-cycle)
+[![bundle size](https://badgen.net/bundlephobia/min/trading-cycle)](https://bundlephobia.com/package/trading-cycle)  [![bundle minzipped size](https://badgen.net/bundlephobia/minzip/trading-cycle)](https://bundlephobia.com/package/trading-cycle)  [![dependencies](https://badgen.net/bundlephobia/dependency-count/trading-cycle)](https://bundlephobia.com/package/trading-cycle)
 
 A lightweight, modular core library designed for backtesting trading strategies in financial markets.
 
