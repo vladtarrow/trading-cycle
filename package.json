@@ -1,6 +1,6 @@
 {
   "name": "trading-cycle",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "Vladyslav Tarasenko",
   "description": "A lightweight, modular core library designed for backtesting trading strategies in financial markets.",
   "keywords": [
@@ -28,9 +28,8 @@
   "private": false,
   "license": "MIT",
   "engines": {
-    "node": "18.18.0"
+    "node": ">=18.18.0"
   },
-  "engine-strict": false,
   "sideEffects": false,
   "scripts": {
     "build:dev:light": "webpack --mode development --config webpack.config.js --config-name light",
